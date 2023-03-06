@@ -1,6 +1,23 @@
 const AnimalsController = {
   GetAnimal: (req, res) => {
-    res.status(200).json({ message: "ok" });
+    let data = "";
+    const animal = req.query.name;
+    const url = "https://api.api-ninjas.com/v1/animals?name=" + animal;
+
+    fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "X-Api-Key": `${process.env.API_NINJAS_KEY}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        data = responseData;
+        res.status(200).json(data);
+      });
+    // .catch((error) => {
+    //   console.error(error);
+    // });
   },
 };
 
