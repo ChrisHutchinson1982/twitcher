@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const AnimalsRouter = require("../controllers/animals");
+const AnimalsController = require("../controllers/animals");
 
-router.get("/", AnimalsRouter.GetAnimal);
+router.get("/", AnimalsController.GetAnimal);
 
 module.exports = router;
