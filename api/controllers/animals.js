@@ -1,6 +1,5 @@
 const AnimalsController = {
   GetAnimal: (req, res) => {
-    let data = "";
     const animal = req.query.name;
     const url = "https://api.api-ninjas.com/v1/animals?name=" + animal;
 
@@ -12,12 +11,11 @@ const AnimalsController = {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        data = responseData;
-        res.status(200).json(data);
+        res.status(200).json(responseData);
+      })
+      .catch((error) => {
+        console.error(error);
       });
-    // .catch((error) => {
-    //   console.error(error);
-    // });
   },
 };
 
