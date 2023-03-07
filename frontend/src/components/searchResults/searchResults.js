@@ -10,9 +10,9 @@ const SearchResults = ({ animalSearch, renderSearch }) => {
               {animal.locations.map((place) => {
                 return <div>{place}</div>;
               })}
-              {/* <div>What do the eat?</div>
+              <div>What do the eat?</div>
               <div>{animal.characteristics.prey}</div>
-              <div>{animal.characteristics.main_prey}</div> */}
+              <div>{animal.characteristics.main_prey}</div>
             </div>
           );
         })}

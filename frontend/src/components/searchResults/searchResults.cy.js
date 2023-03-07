@@ -186,4 +186,19 @@ describe("SearchResults", () => {
       "Europe"
     );
   });
+
+  it("Renders component with prey of animals", () => {
+    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+      "contain.text",
+      "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
+    );
+    cy.get('[data-cy="animalNameResultEuropean Robin"]').should(
+      "contain.text",
+      "Insects, spiders and worms"
+    );
+    cy.get('[data-cy="animalNameResultRobin"]').should(
+      "contain.text",
+      "Worms, Insects, Fruit, Berries"
+    );
+  });
 });
