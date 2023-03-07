@@ -3,15 +3,21 @@ import SearchResults from "../../components/searchResults/searchResults";
 
 const SearchBar = () => {
   const [animal, setAnimal] = useState("");
+  const [animalSearch, setAnimalSearch] = useState([]);
+  const [renderSearch, setRenderSearch] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    await fetch(`http://localhost:8080/animals?name=${animal}`).then(
-      (response) => {
+    await fetch(`http://localhost:8080/animals?name=${animal}`)
+      .then((response) => {
         return response.json();
-      }
-    );
+      })
+      .then((responseData) => {
+        console.log(responseData);
+        setAnimalSearch(responseData);
+        setRenderSearch(true);
+      });
   };
 
   const handleChange = (event) => {
@@ -51,7 +57,10 @@ const SearchBar = () => {
           />
         </form>
         <div>
-          <SearchResults />
+          <SearchResults
+            animalSearch={animalSearch}
+            renderSearch={renderSearch}
+          />
         </div>
       </div>
     </div>
