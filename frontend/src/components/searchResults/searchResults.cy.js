@@ -148,4 +148,16 @@ describe("SearchResults", () => {
       "European Robin"
     );
   });
+
+  it("Renders component with name of three animal options", () => {
+    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+      "contain.text",
+      "American Robin"
+    );
+    cy.get('[data-cy="animalNameResultEuropean Robin"]').should(
+      "contain.text",
+      "European Robin"
+    );
+    cy.get('[data-cy="animalNameResultRobin"]').should("contain.text", "Robin");
+  });
 });
