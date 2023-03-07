@@ -54,7 +54,7 @@ const SearchBar = () => {
               className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
               data-cy="searchSubmit"
               type="submit"
-              value="Submit"
+              value="Search"
             />
             <SearchResults
               animalSearch={animalSearch}
