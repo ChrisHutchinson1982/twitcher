@@ -14,7 +14,6 @@ const SearchBar = () => {
         return response.json();
       })
       .then((responseData) => {
-        console.log(responseData);
         setAnimalSearch(responseData);
         setRenderSearch(true);
       });

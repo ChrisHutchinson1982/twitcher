@@ -5,11 +5,11 @@ const SearchResults = ({ animalSearch, renderSearch }) => {
         {animalSearch.map((animal, index) => {
           return (
             <div
-              className="sm:container sm:mx-auto bg-neutral-50 rounded-xl shadow border p-4 m-10"
+              className="sm:container sm:mx-auto bg-neutral-50 rounded-xl shadow border p-4"
               data-cy={`animalNameResult${animal.name}`}
               key={index}
             >
-              <h1 className="label-text text-gray-700 font-bold text-base">
+              <h1 className="label-text text-gray-700 font-bold text-2xl pb-2">
                 {animal.name}
               </h1>
               <h2 className="label-text text-gray-700 font-bold text-sm">
@@ -23,9 +23,9 @@ const SearchResults = ({ animalSearch, renderSearch }) => {
                 );
               })}
               <h2 className="label-text text-gray-700 font-bold text-sm">
-                What do the eat?
+                What do they eat?
               </h2>
-              <p className="label-text text-gray-700 text-sm">
+              <p className="label-text text-gray-700 text-sm pb-2">
                 {animal.characteristics.prey}
                 {animal.characteristics.main_prey}
               </p>
