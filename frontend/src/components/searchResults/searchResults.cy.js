@@ -160,4 +160,30 @@ describe("SearchResults", () => {
     );
     cy.get('[data-cy="animalNameResultRobin"]').should("contain.text", "Robin");
   });
+
+  it("Renders component with locations of animals", () => {
+    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+      "contain.text",
+      "Central-America",
+      "Europe",
+      "North-America"
+    );
+    cy.get('[data-cy="animalNameResultEuropean Robin"]').should(
+      "contain.text",
+      "Africa",
+      "Asia",
+      "Eurasia",
+      "Europe"
+    );
+    cy.get('[data-cy="animalNameResultRobin"]').should(
+      "contain.text",
+      "Central-America",
+      "Europe",
+      "North-America",
+      "Africa",
+      "Asia",
+      "Eurasia",
+      "Europe"
+    );
+  });
 });
