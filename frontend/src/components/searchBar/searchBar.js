@@ -55,13 +55,11 @@ const SearchBar = () => {
             type="submit"
             value="Submit"
           />
-        </form>
-        <div>
           <SearchResults
             animalSearch={animalSearch}
             renderSearch={renderSearch}
           />
-        </div>
+        </form>
       </div>
     </div>
   );

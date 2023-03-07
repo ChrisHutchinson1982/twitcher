@@ -132,9 +132,20 @@ describe("SearchResults", () => {
   });
 
   it("Renders component with name of animal", () => {
-    cy.get('[data-cy="animalNameResult"]').should(
+    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
       "contain.text",
       "American Robin"
+    );
+  });
+
+  it("Renders component with name of two animal options", () => {
+    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+      "contain.text",
+      "American Robin"
+    );
+    cy.get('[data-cy="animalNameResultEuropean Robin"]').should(
+      "contain.text",
+      "European Robin"
     );
   });
 });

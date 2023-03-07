@@ -1,6 +1,14 @@
 const SearchResults = ({ animalSearch, renderSearch }) => {
   if (renderSearch) {
-    return <div data-cy="animalNameResult">{animalSearch[0].name}</div>;
+    return (
+      <>
+        {animalSearch.map((animal) => {
+          return (
+            <div data-cy={`animalNameResult${animal.name}`}>{animal.name}</div>
+          );
+        })}
+      </>
+    );
   }
 };
 
