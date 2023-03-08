@@ -26,8 +26,8 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="w-1/3 pl-20">
-        <div className="sm:container sm:mx-auto bg-gray-200 rounded-xl shadow border p-4 m-10">
+      <div className="w-1/4 pl-10">
+        <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-4 m-10 w-full max-w-sm ">
           <form
             className="form-control w-full max-w-xs space-y-2"
             onSubmit={handleSubmit}
