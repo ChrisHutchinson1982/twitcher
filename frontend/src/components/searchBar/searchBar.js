@@ -27,14 +27,14 @@ const SearchBar = () => {
   return (
     <>
       <div className="w-1/4 pl-10">
-        <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-4 m-10 w-full max-w-sm ">
+        <div className="container mx-auto rounded-md shadow border p-4 m-10 w-full max-w-sm ">
           <form
             className="form-control w-full max-w-xs space-y-2"
             onSubmit={handleSubmit}
           >
             <label className="label">
               <span
-                className="label-text text-gray-700 font-bold text-base"
+                className="label-text text-black font-bold text-base"
                 data-cy="searchBarLabel"
               >
                 What animal have you spotted?
@@ -50,7 +50,7 @@ const SearchBar = () => {
               onChange={handleChange}
             />
             <input
-              className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+              className="btn btn-outline"
               data-cy="searchSubmit"
               type="submit"
               value="Search"
