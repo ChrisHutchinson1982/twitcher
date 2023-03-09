@@ -106,4 +106,13 @@ describe("User search", () => {
       );
     });
   });
+
+  it("user completes a search without search details and no search results are rendered on the page", () => {
+    cy.visit("/");
+    cy.get('[data-cy="searchSubmit"]').click();
+
+    cy.get('[data-cy="animalNameResultAmerican Robin"]').should("not.exist");
+    cy.get('[data-cy="animalNameResultEuropean Robin"]').should("not.exist");
+    cy.get('[data-cy="animalNameResultRobin"]').should("not.exist");
+  });
 });
