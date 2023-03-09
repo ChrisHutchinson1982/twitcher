@@ -5,9 +5,12 @@ const SearchBar = () => {
   const [animal, setAnimal] = useState("");
   const [animalSearch, setAnimalSearch] = useState([]);
   const [renderSearch, setRenderSearch] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    setLoading(true);
 
     await fetch(`http://localhost:8080/animals?name=${animal}`)
       .then((response) => {
@@ -16,6 +19,7 @@ const SearchBar = () => {
       .then((responseData) => {
         setAnimalSearch(responseData);
         setRenderSearch(true);
+        setLoading(false);
       });
   };
 
@@ -26,15 +30,15 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="w-1/3 pl-20">
-        <div className="sm:container sm:mx-auto bg-gray-200 rounded-xl shadow border p-4 m-10">
+      <div className="w-1/4 pl-10">
+        <div className="container mx-auto rounded-md shadow border p-4 m-10 w-full max-w-sm ">
           <form
             className="form-control w-full max-w-xs space-y-2"
             onSubmit={handleSubmit}
           >
             <label className="label">
               <span
-                className="label-text text-gray-700 font-bold text-base"
+                className="label-text text-black font-bold text-base"
                 data-cy="searchBarLabel"
               >
                 What animal have you spotted?
@@ -50,7 +54,7 @@ const SearchBar = () => {
               onChange={handleChange}
             />
             <input
-              className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+              className="btn btn-outline"
               data-cy="searchSubmit"
               type="submit"
               value="Search"
@@ -58,6 +62,7 @@ const SearchBar = () => {
             <SearchResults
               animalSearch={animalSearch}
               renderSearch={renderSearch}
+              loading={loading}
             />
           </form>
         </div>
