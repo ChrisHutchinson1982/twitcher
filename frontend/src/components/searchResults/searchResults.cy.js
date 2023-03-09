@@ -107,15 +107,15 @@ describe("SearchResults", () => {
     cy.get('[data-cy="loading"]').should("contain.text", "Loading...");
   });
 
-  // it("Does not show loading icon if loading is false", () => {
-  //   cy.mount(
-  //     <SearchResults
-  //       animalSearch={mockSearchResults}
-  //       renderSearch={true}
-  //       loading={false}
-  //     />
-  //   );
+  it("Does not show loading icon if loading is false", () => {
+    cy.mount(
+      <SearchResults
+        animalSearch={mockSearchResults}
+        renderSearch={true}
+        loading={false}
+      />
+    );
 
-  //   cy.get('[data-cy="loading"]').should("not.exist");
-  // });
+    cy.get('[data-cy="loading"]').should("not.exist");
+  });
 });
