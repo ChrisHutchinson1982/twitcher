@@ -82,28 +82,28 @@ describe("User search", () => {
     });
   });
 
-  // it("user sucessfully completes a search and renders mutiple search results with animal foods on the page", () => {
-  //   cy.visit("/");
+  it("user sucessfully completes a search and renders mutiple search results with animal foods on the page", () => {
+    cy.visit("/");
 
-  //   cy.get('[data-cy="animalName"]').type("Robin");
-  //   cy.get('[data-cy="searchSubmit"]').click();
+    cy.get('[data-cy="animalName"]').type("Robin");
+    cy.get('[data-cy="searchSubmit"]').click();
 
-  //   cy.wait("@getAnimals").then(() => {
-  //     cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
-  //       "contain.text",
-  //       "What do they eat?",
-  //       "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
-  //     );
-  //     cy.get('[data-cy="animalNameResultEuropean Robin"]').should(
-  //       "contain.text",
-  //       "What do they eat?",
-  //       "Insects, spiders and worms"
-  //     );
-  //     cy.get('[data-cy="animalNameResultRobin"]').should(
-  //       "contain.text",
-  //       "What do they eat?",
-  //       "Worms, Insects, Fruit, Berries"
-  //     );
-  //   });
-  // });
+    cy.wait("@getAnimals").then(() => {
+      cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+        "contain.text",
+        "What do they eat?",
+        "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
+      );
+      cy.get('[data-cy="animalNameResultEuropean Robin"]').should(
+        "contain.text",
+        "What do they eat?",
+        "Insects, spiders and worms"
+      );
+      cy.get('[data-cy="animalNameResultRobin"]').should(
+        "contain.text",
+        "What do they eat?",
+        "Worms, Insects, Fruit, Berries"
+      );
+    });
+  });
 });
