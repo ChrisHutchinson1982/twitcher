@@ -78,4 +78,12 @@ describe("SearchResults", () => {
       "Worms, Insects, Fruit, Berries"
     );
   });
+
+  it("Does not render the component if renderSearch is false", () => {
+    cy.mount(
+      <SearchResults animalSearch={mockSearchResults} renderSearch={false} />
+    );
+
+    cy.get('[data-cy="animalNameResultAmerican Robin"]').should("not.exist");
+  });
 });
