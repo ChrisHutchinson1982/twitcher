@@ -4,7 +4,11 @@ import mockSearchResults from "./mockSearchResults";
 describe("SearchResults", () => {
   beforeEach(() => {
     cy.mount(
-      <SearchResults animalSearch={mockSearchResults} renderSearch={true} />
+      <SearchResults
+        animalSearch={mockSearchResults}
+        renderSearch={true}
+        loading={false}
+      />
     );
   });
 
@@ -81,9 +85,37 @@ describe("SearchResults", () => {
 
   it("Does not render the component if renderSearch is false", () => {
     cy.mount(
-      <SearchResults animalSearch={mockSearchResults} renderSearch={false} />
+      <SearchResults
+        animalSearch={mockSearchResults}
+        renderSearch={false}
+        loading={false}
+      />
     );
 
     cy.get('[data-cy="animalNameResultAmerican Robin"]').should("not.exist");
   });
+
+  it("Shows loading icon if loading is true", () => {
+    cy.mount(
+      <SearchResults
+        animalSearch={mockSearchResults}
+        renderSearch={true}
+        loading={true}
+      />
+    );
+
+    cy.get('[data-cy="loading"]').should("contain.text", "Loading...");
+  });
+
+  // it("Does not show loading icon if loading is false", () => {
+  //   cy.mount(
+  //     <SearchResults
+  //       animalSearch={mockSearchResults}
+  //       renderSearch={true}
+  //       loading={false}
+  //     />
+  //   );
+
+  //   cy.get('[data-cy="loading"]').should("not.exist");
+  // });
 });

@@ -5,9 +5,12 @@ const SearchBar = () => {
   const [animal, setAnimal] = useState("");
   const [animalSearch, setAnimalSearch] = useState([]);
   const [renderSearch, setRenderSearch] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    setLoading(true);
 
     await fetch(`http://localhost:8080/animals?name=${animal}`)
       .then((response) => {
@@ -16,6 +19,7 @@ const SearchBar = () => {
       .then((responseData) => {
         setAnimalSearch(responseData);
         setRenderSearch(true);
+        setLoading(false);
       });
   };
 
@@ -58,6 +62,7 @@ const SearchBar = () => {
             <SearchResults
               animalSearch={animalSearch}
               renderSearch={renderSearch}
+              loading={loading}
             />
           </form>
         </div>
