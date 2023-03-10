@@ -11,12 +11,12 @@
 
 ![Sprint 1 Mock Up](sprint1MockUp.png)
 
-### Component Screen Shots
+### Component Screen Shots
 
-Search Component
+**Search Component**
 
 ![Search Bar](searchBar.png)
 
-Search with Results
+**Search with Results**
 
 ![Search ](searchResults.png)
