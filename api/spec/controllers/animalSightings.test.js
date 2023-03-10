@@ -31,7 +31,7 @@ describe("/animalSightings", () => {
       expect(response.status).toEqual(200);
     });
 
-    xtest("a new animal sighting is created", async () => {
+    test("a new animal sighting is created", async () => {
       await request(app).post("/animalSightings").send(animalSighting);
 
       let animalSightings = await AnimalSighting.find();
