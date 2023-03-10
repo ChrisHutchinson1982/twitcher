@@ -9,7 +9,7 @@
 
 ### Component Mock Ups
 
-![Sprint 1 Mock Up](sprint1MockUp.png)
+![Sprint 1 Mock Up](sprint1.png)
 
 ### Component Screen Shots
 
