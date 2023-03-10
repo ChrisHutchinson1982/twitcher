@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Developing a full stack web application using the MERN stack to enable users to record animals sighting and views facts.
+Developing a full stack web application using the MERN stack to enable users to record animal sightings and view facts.
 
 ## Approach
 
