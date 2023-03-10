@@ -12,7 +12,7 @@ const SearchBar = () => {
 
     setLoading(true);
 
-    await fetch(`http://localhost:8080/animals?name=${animal}`)
+    await fetch(`/animals?name=${animal}`)
       .then((response) => {
         return response.json();
       })
