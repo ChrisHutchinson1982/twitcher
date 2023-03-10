@@ -37,16 +37,20 @@ describe("AnimalSighting Model", () => {
     expect(animalSighting.food).toEqual("Worms, Insects, Fruit, Berries");
   });
 
-  // it("can save a trip to the database", (done) => {
-  //   trip.save((err) => {
-  //     expect(err).toBeNull();
+  it("can save a animal sighting to the database", async () => {
+    await animalSighting.save();
+    const animalSightings = await AnimalSighting.find();
 
-  //     Trip.find((err, trips) => {
-  //       expect(err).toBeNull();
-  //       expect(trips[0].to).toEqual("Berlin, Germany");
-  //       expect(trips[0].createdAt).not.toEqual(undefined);
-  //       done();
-  //     });
-  //   });
-  // });
+    expect(animalSightings[0].name).toEqual("Robin");
+    expect(animalSightings[0].locations).toEqual([
+      "Africa",
+      "Asia",
+      "Central-America",
+      "Eurasia",
+      "Europe",
+      "North-America",
+      "Oceania",
+    ]);
+    expect(animalSighting.food).toEqual("Worms, Insects, Fruit, Berries");
+  });
 });
