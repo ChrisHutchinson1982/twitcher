@@ -1,5 +1,5 @@
 import { GiHummingbird } from "react-icons/gi";
-import SearchAnimal from "../searchAnimal/searchAnimal";
+import Animal from "../animal/animal";
 
 const SearchResults = ({ animalSearch, renderSearch, loading }) => {
   if (loading) {
@@ -18,7 +18,7 @@ const SearchResults = ({ animalSearch, renderSearch, loading }) => {
       <>
         {animalSearch.map((animal, index) => {
           return (
-            <SearchAnimal
+            <Animal
               animal={animal}
               index={index}
               food={false}

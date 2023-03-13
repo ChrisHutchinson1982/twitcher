@@ -1,10 +1,10 @@
-import SearchAnimal from "./searchAnimal";
+import Animal from "./animal";
 import mockSearchResults from "../searchResults/mockSearchResults";
 
-describe("SearchAnimal", () => {
+describe("Animal", () => {
   it("Renders component with Animal name, location and prey", () => {
     cy.mount(
-      <SearchAnimal
+      <Animal
         animal={mockSearchResults[0]}
         index={0}
         food={false}
@@ -25,7 +25,7 @@ describe("SearchAnimal", () => {
   });
   it("Renders component with Animal name, location and main_prey", () => {
     cy.mount(
-      <SearchAnimal
+      <Animal
         animal={mockSearchResults[2]}
         index={2}
         food={false}
@@ -48,7 +48,7 @@ describe("SearchAnimal", () => {
   });
   it("Renders component with save button", () => {
     cy.mount(
-      <SearchAnimal
+      <Animal
         animal={mockSearchResults[0]}
         index={0}
         food={false}
@@ -63,7 +63,7 @@ describe("SearchAnimal", () => {
 
   it("Creates a POST request to '/animalSightings'", (done) => {
     cy.mount(
-      <SearchAnimal
+      <Animal
         animal={mockSearchResults[0]}
         index={0}
         food={false}

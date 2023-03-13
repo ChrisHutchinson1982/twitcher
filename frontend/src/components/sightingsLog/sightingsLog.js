@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SearchAnimal from "../searchAnimal/searchAnimal";
+import Animal from "../animal/animal";
 
 const SightingsLog = () => {
   const [sightings, setSightings] = useState([]);
@@ -22,7 +22,7 @@ const SightingsLog = () => {
       >
         {sightings.map((animal, index) => {
           return (
-            <SearchAnimal
+            <Animal
               animal={animal}
               index={index}
               food={animal.food}

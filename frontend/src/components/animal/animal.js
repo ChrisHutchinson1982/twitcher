@@ -1,6 +1,6 @@
-import SearchFacts from "../../components/searchFacts/searchFacts";
+import SearchFacts from "../searchFacts/searchFacts";
 
-const SearchAnimal = ({ animal, index, food, parentComponent }) => {
+const Animal = ({ animal, index, food, parentComponent }) => {
   if (!food) {
     food = animal.characteristics.prey;
     if (!food) {
@@ -54,4 +54,4 @@ const SearchAnimal = ({ animal, index, food, parentComponent }) => {
   );
 };
 
-export default SearchAnimal;
+export default Animal;
