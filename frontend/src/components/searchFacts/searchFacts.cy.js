@@ -6,32 +6,18 @@ describe("SearchAnimal", () => {
     cy.mount(
       <SearchFacts
         locations={mockSearchResults[0].locations}
-        food="earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
+        food={mockSearchResults[0].characteristics.prey}
       />
     );
 
     cy.get('[data-cy="animalFacts"]').should(
       "contain.text",
+      "Where do they live?",
       "Central-America",
       "Europe",
       "North-America",
+      "What do they eat?",
       "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
     );
   });
-  // it("Renders component with Animal name, location and main_prey", () => {
-  //   cy.mount(<SearchAnimal animal={mockSearchResults[2]} index={2} />);
-
-  //   cy.get('[data-cy="animalNameResultRobin"]').should(
-  //     "contain.text",
-  //     "Robin",
-  //     "Central-America",
-  //     "Europe",
-  //     "North-America",
-  //     "Africa",
-  //     "Asia",
-  //     "Eurasia",
-  //     "Europe",
-  //     "Worms, Insects, Fruit, Berries"
-  //   );
-  // });
 });

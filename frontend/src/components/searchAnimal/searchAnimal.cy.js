@@ -8,9 +8,11 @@ describe("SearchAnimal", () => {
     cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
       "contain.text",
       "American Robin",
+      "Where do they live?",
       "Central-America",
       "Europe",
       "North-America",
+      "What do they eat?",
       "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
     );
   });

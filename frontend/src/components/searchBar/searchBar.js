@@ -60,7 +60,6 @@ const SearchBar = () => {
               value="Search"
             />
           </form>
-
           <SearchResults
             animalSearch={animalSearch}
             renderSearch={renderSearch}
