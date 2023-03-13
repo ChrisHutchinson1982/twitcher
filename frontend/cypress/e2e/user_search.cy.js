@@ -17,7 +17,7 @@ describe("User search", () => {
     cy.get('[data-cy="searchSubmit"]').click();
 
     cy.wait("@getAnimals").then(() => {
-      cy.get('[data-cy="animalResultAmerican Robin"]').should(
+      cy.get('[data-cy="animalSearchAmerican Robin"]').should(
         "contain.text",
         "American Robin"
       );
@@ -31,15 +31,15 @@ describe("User search", () => {
     cy.get('[data-cy="searchSubmit"]').click();
 
     cy.wait("@getAnimals").then(() => {
-      cy.get('[data-cy="animalResultAmerican Robin"]').should(
+      cy.get('[data-cy="animalSearchAmerican Robin"]').should(
         "contain.text",
         "American Robin"
       );
-      cy.get('[data-cy="animalResultEuropean Robin"]').should(
+      cy.get('[data-cy="animalSearchEuropean Robin"]').should(
         "contain.text",
         "European Robin"
       );
-      cy.get('[data-cy="animalResultRobin"]').should("contain.text", "Robin");
+      cy.get('[data-cy="animalSearchRobin"]').should("contain.text", "Robin");
     });
   });
 
@@ -50,14 +50,14 @@ describe("User search", () => {
     cy.get('[data-cy="searchSubmit"]').click();
 
     cy.wait("@getAnimals").then(() => {
-      cy.get('[data-cy="animalResultAmerican Robin"]').should(
+      cy.get('[data-cy="animalSearchAmerican Robin"]').should(
         "contain.text",
         "Where do they live?",
         "Central-America",
         "Europe",
         "North-America"
       );
-      cy.get('[data-cy="animalResultEuropean Robin"]').should(
+      cy.get('[data-cy="animalSearchEuropean Robin"]').should(
         "contain.text",
         "Where do they live?",
         "Africa",
@@ -65,7 +65,7 @@ describe("User search", () => {
         "Eurasia",
         "Europe"
       );
-      cy.get('[data-cy="animalResultRobin"]').should(
+      cy.get('[data-cy="animalSearchRobin"]').should(
         "contain.text",
         "Where do they live?",
         "Central-America",
@@ -86,17 +86,17 @@ describe("User search", () => {
     cy.get('[data-cy="searchSubmit"]').click();
 
     cy.wait("@getAnimals").then(() => {
-      cy.get('[data-cy="animalResultAmerican Robin"]').should(
+      cy.get('[data-cy="animalSearchAmerican Robin"]').should(
         "contain.text",
         "What do they eat?",
         "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
       );
-      cy.get('[data-cy="animalResultEuropean Robin"]').should(
+      cy.get('[data-cy="animalSearchEuropean Robin"]').should(
         "contain.text",
         "What do they eat?",
         "Insects, spiders and worms"
       );
-      cy.get('[data-cy="animalResultRobin"]').should(
+      cy.get('[data-cy="animalSearchRobin"]').should(
         "contain.text",
         "What do they eat?",
         "Worms, Insects, Fruit, Berries"
@@ -108,8 +108,8 @@ describe("User search", () => {
     cy.visit("/");
     cy.get('[data-cy="searchSubmit"]').click();
 
-    cy.get('[data-cy="animalResultAmerican Robin"]').should("not.exist");
-    cy.get('[data-cy="animalResultEuropean Robin"]').should("not.exist");
-    cy.get('[data-cy="animalResultRobin"]').should("not.exist");
+    cy.get('[data-cy="animalSearchAmerican Robin"]').should("not.exist");
+    cy.get('[data-cy="animalSearchEuropean Robin"]').should("not.exist");
+    cy.get('[data-cy="animalSearchRobin"]').should("not.exist");
   });
 });

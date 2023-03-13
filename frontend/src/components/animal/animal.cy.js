@@ -8,11 +8,11 @@ describe("Animal", () => {
         animal={mockSearchResults[0]}
         index={0}
         food={false}
-        parentComponent={"Result"}
+        parentComponent={"Search"}
       />
     );
 
-    cy.get('[data-cy="animalResultAmerican Robin"]').should(
+    cy.get('[data-cy="animalSearchAmerican Robin"]').should(
       "contain.text",
       "American Robin",
       "Where do they live?",
@@ -29,11 +29,11 @@ describe("Animal", () => {
         animal={mockSearchResults[2]}
         index={2}
         food={false}
-        parentComponent={"Result"}
+        parentComponent={"Search"}
       />
     );
 
-    cy.get('[data-cy="animalResultRobin"]').should(
+    cy.get('[data-cy="animalSearchRobin"]').should(
       "contain.text",
       "Robin",
       "Central-America",
@@ -52,7 +52,7 @@ describe("Animal", () => {
         animal={mockSearchResults[0]}
         index={0}
         food={false}
-        parentComponent={"Result"}
+        parentComponent={"Search"}
       />
     );
 
@@ -67,7 +67,7 @@ describe("Animal", () => {
         animal={mockSearchResults[0]}
         index={0}
         food={false}
-        parentComponent={"Result"}
+        parentComponent={"Search"}
       />
     );
 

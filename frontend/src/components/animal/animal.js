@@ -31,7 +31,7 @@ const Animal = ({ animal, index, food, parentComponent }) => {
   };
 
   const renderButton = () => {
-    if (parentComponent === "Result") {
+    if (parentComponent === "Search") {
       return (
         <>
           <form onSubmit={handleAnimalSave}>

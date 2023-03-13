@@ -22,7 +22,7 @@ const SearchResults = ({ animalSearch, renderSearch, loading }) => {
               animal={animal}
               index={index}
               food={false}
-              parentComponent={"Result"}
+              parentComponent={"Search"}
             />
           );
         })}
