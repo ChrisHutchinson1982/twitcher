@@ -1,7 +1,7 @@
 import SightingsLog from "./sightingsLog";
 
 describe("SightingsLog", () => {
-  it("Calls the /animalSightings endpoint and lists all the sightings", () => {
+  beforeEach(() => {
     cy.intercept("GET", "/animalSightings", (req) => {
       req.reply({
         statusCode: 200,
@@ -29,7 +29,9 @@ describe("SightingsLog", () => {
     }).as("getSightings");
 
     cy.mount(<SightingsLog />);
+  });
 
+  it("Calls the /animalSightings endpoint and lists all names of the sightings", () => {
     cy.wait("@getSightings").then(() => {
       cy.get('[data-cy="sightingsLog"]')
         .should("contain.text", "American Robin")

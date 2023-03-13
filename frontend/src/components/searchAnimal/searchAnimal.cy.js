@@ -3,7 +3,14 @@ import mockSearchResults from "../searchResults/mockSearchResults";
 
 describe("SearchAnimal", () => {
   it("Renders component with Animal name, location and prey", () => {
-    cy.mount(<SearchAnimal animal={mockSearchResults[0]} index={0} />);
+    cy.mount(
+      <SearchAnimal
+        animal={mockSearchResults[0]}
+        index={0}
+        food={false}
+        parentComponent={"Result"}
+      />
+    );
 
     cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
       "contain.text",
@@ -17,7 +24,14 @@ describe("SearchAnimal", () => {
     );
   });
   it("Renders component with Animal name, location and main_prey", () => {
-    cy.mount(<SearchAnimal animal={mockSearchResults[2]} index={2} />);
+    cy.mount(
+      <SearchAnimal
+        animal={mockSearchResults[2]}
+        index={2}
+        food={false}
+        parentComponent={"Result"}
+      />
+    );
 
     cy.get('[data-cy="animalNameResultRobin"]').should(
       "contain.text",
@@ -33,7 +47,14 @@ describe("SearchAnimal", () => {
     );
   });
   it("Renders component with save button", () => {
-    cy.mount(<SearchAnimal animal={mockSearchResults[0]} index={0} />);
+    cy.mount(
+      <SearchAnimal
+        animal={mockSearchResults[0]}
+        index={0}
+        food={false}
+        parentComponent={"Result"}
+      />
+    );
 
     cy.get('[data-cy="saveButton"]')
       .invoke("attr", "type")
@@ -41,7 +62,14 @@ describe("SearchAnimal", () => {
   });
 
   it("Creates a POST request to '/animalSightings'", (done) => {
-    cy.mount(<SearchAnimal animal={mockSearchResults[0]} index={0} />);
+    cy.mount(
+      <SearchAnimal
+        animal={mockSearchResults[0]}
+        index={0}
+        food={false}
+        parentComponent={"Result"}
+      />
+    );
 
     cy.intercept("POST", "/animalSightings", { message: "SAVED" }).as(
       "saveAnimal"

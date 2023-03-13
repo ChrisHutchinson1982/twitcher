@@ -1,10 +1,11 @@
 import SearchFacts from "../../components/searchFacts/searchFacts";
 
-const SearchAnimal = ({ animal, index }) => {
-  let food = animal.characteristics.prey;
-
+const SearchAnimal = ({ animal, index, food, parentComponent }) => {
   if (!food) {
-    food = animal.characteristics.main_prey;
+    food = animal.characteristics.prey;
+    if (!food) {
+      food = animal.characteristics.main_prey;
+    }
   }
 
   const handleAnimalSave = async (e) => {
@@ -32,7 +33,7 @@ const SearchAnimal = ({ animal, index }) => {
   return (
     <div
       className="sm:container sm:mx-auto bg-white rounded-xl shadow border p-4"
-      data-cy={`animalNameResult${animal.name}`}
+      data-cy={`animalName${parentComponent}${animal.name}`}
       key={index}
     >
       <h1 className="label-text text-black font-bold text-2xl pb-2">

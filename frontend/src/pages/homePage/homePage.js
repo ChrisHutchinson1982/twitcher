@@ -8,11 +8,13 @@ const HomePage = () => {
       <nav>
         <NavBar />
       </nav>
-      <div>
-        <SearchBar />
-      </div>
-      <div>
-        <SightingsLog />
+      <div className="flex flex-row space-x-4">
+        <div className="basis-1/4">
+          <SearchBar />
+        </div>
+        <div className="basis-3/4">
+          <SightingsLog />
+        </div>
       </div>
     </main>
   );

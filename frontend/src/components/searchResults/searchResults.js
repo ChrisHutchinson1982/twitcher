@@ -17,7 +17,14 @@ const SearchResults = ({ animalSearch, renderSearch, loading }) => {
     return (
       <>
         {animalSearch.map((animal, index) => {
-          return <SearchAnimal animal={animal} index={index} />;
+          return (
+            <SearchAnimal
+              animal={animal}
+              index={index}
+              food={false}
+              parentComponent={"Result"}
+            />
+          );
         })}
       </>
     );
