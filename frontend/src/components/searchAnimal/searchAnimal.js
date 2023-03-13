@@ -5,6 +5,44 @@ const SearchAnimal = ({ animal, index }) => {
     food = animal.characteristics.main_prey;
   }
 
+  const getFacts = () => {
+    const facts = [
+      { label: "Where do they live?", content: getLocations() },
+      { label: "What do they eat?", content: food },
+    ];
+
+    return (
+      <>
+        {facts.map((fact) => {
+          return (
+            <>
+              <h2 className="label-text text-black font-bold text-sm pt-2">
+                {fact.label}
+              </h2>
+              <p className="label-text text-black text-sm pb-2">
+                {fact.content}
+              </p>
+            </>
+          );
+        })}
+      </>
+    );
+  };
+
+  const getLocations = () => {
+    return (
+      <>
+        {animal.locations.map((place, index) => {
+          return (
+            <p className="label-text text-black text-sm" key={index}>
+              {place}
+            </p>
+          );
+        })}
+      </>
+    );
+  };
+
   const handleAnimalSave = async (e) => {
     e.preventDefault();
 
@@ -36,20 +74,7 @@ const SearchAnimal = ({ animal, index }) => {
       <h1 className="label-text text-black font-bold text-2xl pb-2">
         {animal.name}
       </h1>
-      <h2 className="label-text text-black font-bold text-sm">
-        Where do they live?
-      </h2>
-      {animal.locations.map((place, index) => {
-        return (
-          <p className="label-text text-black text-sm" key={index}>
-            {place}
-          </p>
-        );
-      })}
-      <h2 className="label-text text-black font-bold text-sm pt-2">
-        What do they eat?
-      </h2>
-      <p className="label-text text-black text-sm pb-2">{food}</p>
+      <div>{getFacts()}</div>
       <div>
         <form onSubmit={handleAnimalSave}>
           <input
