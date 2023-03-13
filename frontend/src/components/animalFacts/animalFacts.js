@@ -1,4 +1,4 @@
-const SearchFacts = ({ locations, food }) => {
+const AnimalFacts = ({ locations, food }) => {
   const getLocations = () => {
     return (
       <>
@@ -21,16 +21,16 @@ const SearchFacts = ({ locations, food }) => {
   return (
     <>
       <div data-cy="animalFacts">
-        {facts.map((fact) => {
+        {facts.map((fact, index) => {
           return (
-            <>
+            <div key={index}>
               <h2 className="label-text text-black font-bold text-sm pt-2">
                 {fact.label}
               </h2>
-              <p className="label-text text-black text-sm pb-2">
+              <div className="label-text text-black text-sm pb-2">
                 {fact.content}
-              </p>
-            </>
+              </div>
+            </div>
           );
         })}
       </div>
@@ -38,4 +38,4 @@ const SearchFacts = ({ locations, food }) => {
   );
 };
 
-export default SearchFacts;
+export default AnimalFacts;
