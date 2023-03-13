@@ -38,4 +38,27 @@ describe("SightingsLog", () => {
         .and("contain.text", "Bengal Tiger");
     });
   });
+
+  it("Calls the /animalSightings endpoint and lists all names and facts of the sightings", () => {
+    cy.wait("@getSightings").then(() => {
+      cy.get('[data-cy="animalNameLogAmerican Robin"]').should(
+        "contain.text",
+        "American Robin",
+        "Where do they live?",
+        "Central-America",
+        "Europe",
+        "North-America",
+        "What do they eat?",
+        "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
+      );
+      cy.get('[data-cy="animalNameLogBengal Tiger"]').should(
+        "contain.text",
+        "Bengal Tiger",
+        "Where do they live?",
+        "Asia",
+        "What do they eat?",
+        "Deer, Cattle, Wild Boar"
+      );
+    });
+  });
 });
