@@ -7,9 +7,11 @@ app.use(cors());
 app.use(express.json());
 
 const animalsRouter = require("./routes/animals");
+const animalSightingsRouter = require("./routes/animalSightings");
 
 //route setup
 app.use("/animals", animalsRouter);
+app.use("/animalSightings", animalSightingsRouter);
 
 // app.use(require("./routes/record"));
 // get driver connection

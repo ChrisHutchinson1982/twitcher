@@ -2,7 +2,7 @@ import mockSearchResults from "../../src/components/searchResults/mockSearchResu
 
 describe("User search", () => {
   beforeEach(() => {
-    cy.intercept("GET", "http://localhost:8080/animals?name=Robin", (req) => {
+    cy.intercept("GET", "/animals?name=Robin", (req) => {
       req.reply({
         statusCode: 200,
         body: mockSearchResults,

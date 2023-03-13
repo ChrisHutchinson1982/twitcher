@@ -12,7 +12,7 @@ const SearchBar = () => {
 
     setLoading(true);
 
-    await fetch(`http://localhost:8080/animals?name=${animal}`)
+    await fetch(`/animals?name=${animal}`)
       .then((response) => {
         return response.json();
       })
@@ -31,7 +31,7 @@ const SearchBar = () => {
   return (
     <>
       <div className="w-1/4 pl-10">
-        <div className="container mx-auto rounded-md shadow border p-4 m-10 w-full max-w-sm ">
+        <div className="container mx-auto rounded-md shadow border p-4 m-10 w-full max-w-sm space-y-2">
           <form
             className="form-control w-full max-w-xs space-y-2"
             onSubmit={handleSubmit}
@@ -59,12 +59,12 @@ const SearchBar = () => {
               type="submit"
               value="Search"
             />
-            <SearchResults
-              animalSearch={animalSearch}
-              renderSearch={renderSearch}
-              loading={loading}
-            />
           </form>
+          <SearchResults
+            animalSearch={animalSearch}
+            renderSearch={renderSearch}
+            loading={loading}
+          />
         </div>
       </div>
     </>
