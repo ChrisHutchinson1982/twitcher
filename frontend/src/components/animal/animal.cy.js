@@ -83,7 +83,7 @@ describe("Animal", () => {
     done();
   });
 
-  it("Does not render component with save button with parentComponent", () => {
+  it("Does not render component with save button when parentComponent is Log", () => {
     cy.mount(
       <Animal
         animal={mockSearchResults[0]}
@@ -96,5 +96,29 @@ describe("Animal", () => {
     );
 
     cy.get('[data-cy="saveButton"]').should("not.exist");
+  });
+
+  it("Renders component with Animal name, location and food when parentComponent is Log", () => {
+    cy.mount(
+      <Animal
+        animal={mockSearchResults[0]}
+        index={0}
+        food={
+          "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
+        }
+        parentComponent={"Log"}
+      />
+    );
+
+    cy.get('[data-cy="animalNameLogAmerican Robin"]').should(
+      "contain.text",
+      "American Robin",
+      "Where do they live?",
+      "Central-America",
+      "Europe",
+      "North-America",
+      "What do they eat?",
+      "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
+    );
   });
 });
