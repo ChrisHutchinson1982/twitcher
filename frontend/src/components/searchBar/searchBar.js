@@ -31,7 +31,7 @@ const SearchBar = ({ setSightings }) => {
   return (
     <>
       <div className="pl-10">
-        <div className="container mx-auto rounded-md shadow border p-4 m-10 w-full max-w-sm space-y-2">
+        <div className="container mx-auto rounded-md shadow border p-4 m-10 w-full max-w-sm space-y-2 bg-white bg-opacity-75">
           <form
             className="form-control w-full max-w-xs space-y-2"
             onSubmit={handleSubmit}

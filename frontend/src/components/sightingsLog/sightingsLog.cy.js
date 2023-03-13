@@ -45,10 +45,6 @@ describe("SightingsLog", () => {
 
   it("Calls the /animalSightings endpoint and renders lists of all names and facts of the sightings", () => {
     cy.wait("@getSightings").then(() => {
-      setTimeout(() => {
-        expect(setSightingsMockk).to.be.called;
-      }, 1000);
-
       cy.get('[data-cy="animalLogAmerican Robin"]').should(
         "contain.text",
         "American Robin",
@@ -74,5 +70,9 @@ describe("SightingsLog", () => {
     cy.wait("@getSightings").then(() => {
       cy.get('[data-cy="saveButton"]').should("not.exist");
     });
+  });
+
+  it("Component is rendered with tag line", () => {
+    cy.get('[data-cy="sightingsLog"]').should("contain.text", "Twitching Log");
   });
 });

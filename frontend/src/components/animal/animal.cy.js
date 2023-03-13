@@ -2,6 +2,8 @@ import Animal from "./animal";
 import mockSearchResults from "../searchResults/mockSearchResults";
 
 describe("Animal", () => {
+  let setSightingsMock;
+
   it("Renders component with Animal name, location and prey", () => {
     cy.mount(
       <Animal
@@ -9,6 +11,7 @@ describe("Animal", () => {
         index={0}
         food={false}
         parentComponent={"Search"}
+        setSightings={setSightingsMock}
       />
     );
 
@@ -30,6 +33,7 @@ describe("Animal", () => {
         index={2}
         food={false}
         parentComponent={"Search"}
+        setSightings={setSightingsMock}
       />
     );
 
@@ -53,6 +57,7 @@ describe("Animal", () => {
         index={0}
         food={false}
         parentComponent={"Search"}
+        setSightings={setSightingsMock}
       />
     );
 
@@ -68,6 +73,7 @@ describe("Animal", () => {
         index={0}
         food={false}
         parentComponent={"Search"}
+        setSightings={setSightingsMock}
       />
     );
 
@@ -92,6 +98,7 @@ describe("Animal", () => {
           "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
         }
         parentComponent={"Log"}
+        setSightings={setSightingsMock}
       />
     );
 

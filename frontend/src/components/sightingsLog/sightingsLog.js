@@ -15,9 +15,18 @@ const SightingsLog = ({ sightings, setSightings }) => {
   return (
     <>
       <div
-        className="container mx-auto rounded-md shadow border p-4 m-10 w-full max-w-sm space-y-2"
+        className="container mx-auto rounded-md shadow border p-4 m-10 w-full max-w-sm space-y-2 bg-white bg-opacity-75"
         data-cy="sightingsLog"
       >
+        {" "}
+        <label className="label">
+          <span
+            className="label-text text-black font-bold text-5xl"
+            data-cy="searchBarLabel"
+          >
+            Twitching Log
+          </span>
+        </label>
         {sightings.map((animal, index) => {
           return (
             <div key={index}>
