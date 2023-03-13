@@ -13,50 +13,50 @@ describe("SearchResults", () => {
   });
 
   it("Renders component with name of animal", () => {
-    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+    cy.get('[data-cy="animalResultAmerican Robin"]').should(
       "contain.text",
       "American Robin"
     );
   });
 
   it("Renders component with name of two animal options", () => {
-    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+    cy.get('[data-cy="animalResultAmerican Robin"]').should(
       "contain.text",
       "American Robin"
     );
-    cy.get('[data-cy="animalNameResultEuropean Robin"]').should(
+    cy.get('[data-cy="animalResultEuropean Robin"]').should(
       "contain.text",
       "European Robin"
     );
   });
 
   it("Renders component with name of three animal options", () => {
-    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+    cy.get('[data-cy="animalResultAmerican Robin"]').should(
       "contain.text",
       "American Robin"
     );
-    cy.get('[data-cy="animalNameResultEuropean Robin"]').should(
+    cy.get('[data-cy="animalResultEuropean Robin"]').should(
       "contain.text",
       "European Robin"
     );
-    cy.get('[data-cy="animalNameResultRobin"]').should("contain.text", "Robin");
+    cy.get('[data-cy="animalResultRobin"]').should("contain.text", "Robin");
   });
 
   it("Renders component with locations of animals", () => {
-    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+    cy.get('[data-cy="animalResultAmerican Robin"]').should(
       "contain.text",
       "Central-America",
       "Europe",
       "North-America"
     );
-    cy.get('[data-cy="animalNameResultEuropean Robin"]').should(
+    cy.get('[data-cy="animalResultEuropean Robin"]').should(
       "contain.text",
       "Africa",
       "Asia",
       "Eurasia",
       "Europe"
     );
-    cy.get('[data-cy="animalNameResultRobin"]').should(
+    cy.get('[data-cy="animalResultRobin"]').should(
       "contain.text",
       "Central-America",
       "Europe",
@@ -69,15 +69,15 @@ describe("SearchResults", () => {
   });
 
   it("Renders component with prey of animals", () => {
-    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+    cy.get('[data-cy="animalResultAmerican Robin"]').should(
       "contain.text",
       "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
     );
-    cy.get('[data-cy="animalNameResultEuropean Robin"]').should(
+    cy.get('[data-cy="animalResultEuropean Robin"]').should(
       "contain.text",
       "Insects, spiders and worms"
     );
-    cy.get('[data-cy="animalNameResultRobin"]').should(
+    cy.get('[data-cy="animalResultRobin"]').should(
       "contain.text",
       "Worms, Insects, Fruit, Berries"
     );
@@ -92,7 +92,7 @@ describe("SearchResults", () => {
       />
     );
 
-    cy.get('[data-cy="animalNameResultAmerican Robin"]').should("not.exist");
+    cy.get('[data-cy="animalResultAmerican Robin"]').should("not.exist");
   });
 
   it("Shows loading icon if loading is true", () => {

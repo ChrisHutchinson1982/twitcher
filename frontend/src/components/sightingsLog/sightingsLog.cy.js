@@ -41,7 +41,7 @@ describe("SightingsLog", () => {
 
   it("Calls the /animalSightings endpoint and renders lists of all names and facts of the sightings", () => {
     cy.wait("@getSightings").then(() => {
-      cy.get('[data-cy="animalNameLogAmerican Robin"]').should(
+      cy.get('[data-cy="animalLogAmerican Robin"]').should(
         "contain.text",
         "American Robin",
         "Where do they live?",
@@ -51,7 +51,7 @@ describe("SightingsLog", () => {
         "What do they eat?",
         "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
       );
-      cy.get('[data-cy="animalNameLogBengal Tiger"]').should(
+      cy.get('[data-cy="animalLogBengal Tiger"]').should(
         "contain.text",
         "Bengal Tiger",
         "Where do they live?",

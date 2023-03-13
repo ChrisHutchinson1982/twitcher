@@ -12,7 +12,7 @@ describe("Animal", () => {
       />
     );
 
-    cy.get('[data-cy="animalNameResultAmerican Robin"]').should(
+    cy.get('[data-cy="animalResultAmerican Robin"]').should(
       "contain.text",
       "American Robin",
       "Where do they live?",
@@ -33,7 +33,7 @@ describe("Animal", () => {
       />
     );
 
-    cy.get('[data-cy="animalNameResultRobin"]').should(
+    cy.get('[data-cy="animalResultRobin"]').should(
       "contain.text",
       "Robin",
       "Central-America",
@@ -110,7 +110,7 @@ describe("Animal", () => {
       />
     );
 
-    cy.get('[data-cy="animalNameLogAmerican Robin"]').should(
+    cy.get('[data-cy="animalLogAmerican Robin"]').should(
       "contain.text",
       "American Robin",
       "Where do they live?",

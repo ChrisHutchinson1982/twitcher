@@ -31,7 +31,7 @@ const Animal = ({ animal, index, food, parentComponent }) => {
   };
 
   const renderButton = () => {
-    if (parentComponent == "Result") {
+    if (parentComponent === "Result") {
       return (
         <>
           <form onSubmit={handleAnimalSave}>
@@ -51,7 +51,7 @@ const Animal = ({ animal, index, food, parentComponent }) => {
     <>
       <div
         className="sm:container sm:mx-auto bg-white rounded-xl shadow border p-4"
-        data-cy={`animalName${parentComponent}${animal.name}`}
+        data-cy={`animal${parentComponent}${animal.name}`}
         key={index}
       >
         <h1 className="label-text text-black font-bold text-2xl pb-2">
