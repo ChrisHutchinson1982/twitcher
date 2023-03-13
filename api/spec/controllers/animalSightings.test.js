@@ -68,5 +68,16 @@ describe("/animalSightings", () => {
       let sightings = response.body.map((sighting) => sighting.name);
       expect(sightings).toEqual(["Robin", "Bengal Tiger"]);
     });
+
+    test("the response code is 200", async () => {
+      let sighting1 = new AnimalSighting(animalSighting1);
+      let sighting2 = new AnimalSighting(animalSighting2);
+
+      await sighting1.save();
+      await sighting2.save();
+
+      let response = await request(app).get("/animalSightings");
+      expect(response.status).toEqual(200);
+    });
   });
 });
