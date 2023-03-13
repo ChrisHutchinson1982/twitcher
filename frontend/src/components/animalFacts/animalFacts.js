@@ -1,4 +1,4 @@
-const SearchFacts = ({ locations, food }) => {
+const AnimalFacts = ({ locations, food }) => {
   const getLocations = () => {
     return (
       <>
@@ -38,4 +38,4 @@ const SearchFacts = ({ locations, food }) => {
   );
 };
 
-export default SearchFacts;
+export default AnimalFacts;

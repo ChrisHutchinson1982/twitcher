@@ -1,4 +1,4 @@
-import SearchFacts from "../searchFacts/searchFacts";
+import AnimalFacts from "../animalFacts/animalFacts";
 
 const Animal = ({ animal, index, food, parentComponent }) => {
   if (!food) {
@@ -39,7 +39,7 @@ const Animal = ({ animal, index, food, parentComponent }) => {
       <h1 className="label-text text-black font-bold text-2xl pb-2">
         {animal.name}
       </h1>
-      <SearchFacts locations={animal.locations} food={food} />
+      <AnimalFacts locations={animal.locations} food={food} />
       <div>
         <form onSubmit={handleAnimalSave}>
           <input

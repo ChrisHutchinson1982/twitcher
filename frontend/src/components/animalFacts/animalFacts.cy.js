@@ -1,10 +1,10 @@
-import SearchFacts from "./searchFacts";
+import AnimalFacts from "./animalFacts";
 import mockSearchResults from "../searchResults/mockSearchResults";
 
-describe("SearchFacts", () => {
+describe("AnimalFacts", () => {
   it("Renders component with Animal name, location and prey", () => {
     cy.mount(
-      <SearchFacts
+      <AnimalFacts
         locations={mockSearchResults[0].locations}
         food={mockSearchResults[0].characteristics.prey}
       />
