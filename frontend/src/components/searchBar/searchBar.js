@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchResults from "../../components/searchResults/searchResults";
 
-const SearchBar = () => {
+const SearchBar = ({ setSightings }) => {
   const [animal, setAnimal] = useState("");
   const [animalSearch, setAnimalSearch] = useState([]);
   const [renderSearch, setRenderSearch] = useState(false);
@@ -64,6 +64,7 @@ const SearchBar = () => {
             animalSearch={animalSearch}
             renderSearch={renderSearch}
             loading={loading}
+            setSightings={setSightings}
           />
         </div>
       </div>

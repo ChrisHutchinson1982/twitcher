@@ -1,11 +1,16 @@
 import SightingsLog from "./sightingsLog";
 
 describe("SightingsLog", () => {
+  let setSightingsMock;
+
   beforeEach(() => {
-    cy.intercept("GET", "/animalSightings", (req) => {
-      req.reply({
-        statusCode: 200,
-        body: [
+    setSightingsMock = cy.stub();
+
+    cy.intercept("GET", "/animalSightings").as("getSightings");
+
+    cy.mount(
+      <SightingsLog
+        sightings={[
           {
             _id: "640f1f5232ae66537401f128",
             name: "American Robin",
@@ -24,11 +29,10 @@ describe("SightingsLog", () => {
             updatedAt: "2023-03-13T13:06:48.185Z",
             __v: 0,
           },
-        ],
-      });
-    }).as("getSightings");
-
-    cy.mount(<SightingsLog />);
+        ]}
+        setSightings={setSightingsMock}
+      />
+    );
   });
 
   it("Calls the /animalSightings endpoint and renders lists of all names of the sightings", () => {
@@ -41,6 +45,10 @@ describe("SightingsLog", () => {
 
   it("Calls the /animalSightings endpoint and renders lists of all names and facts of the sightings", () => {
     cy.wait("@getSightings").then(() => {
+      setTimeout(() => {
+        expect(setSightingsMockk).to.be.called;
+      }, 1000);
+
       cy.get('[data-cy="animalLogAmerican Robin"]').should(
         "contain.text",
         "American Robin",

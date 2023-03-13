@@ -1,7 +1,12 @@
 import { GiHummingbird } from "react-icons/gi";
 import Animal from "../animal/animal";
 
-const SearchResults = ({ animalSearch, renderSearch, loading }) => {
+const SearchResults = ({
+  animalSearch,
+  renderSearch,
+  loading,
+  setSightings,
+}) => {
   if (loading) {
     return (
       <>
@@ -23,6 +28,7 @@ const SearchResults = ({ animalSearch, renderSearch, loading }) => {
               index={index}
               food={false}
               parentComponent={"Search"}
+              setSightings={setSightings}
             />
           );
         })}

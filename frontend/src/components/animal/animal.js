@@ -1,6 +1,6 @@
 import AnimalFacts from "../animalFacts/animalFacts";
 
-const Animal = ({ animal, index, food, parentComponent }) => {
+const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
   if (!food) {
     food = animal.characteristics.prey;
     if (!food) {
@@ -27,6 +27,13 @@ const Animal = ({ animal, index, food, parentComponent }) => {
       console.log("animal NOT added");
     } else {
       console.log("animal added");
+      fetch("/animalSightings")
+        .then((response) => {
+          return response.json();
+        })
+        .then(async (responseData) => {
+          setSightings(responseData);
+        });
     }
   };
 

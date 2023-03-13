@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Animal from "../animal/animal";
 
-const SightingsLog = () => {
-  const [sightings, setSightings] = useState([]);
-
+const SightingsLog = ({ sightings, setSightings }) => {
   useEffect(() => {
     fetch("/animalSightings")
       .then((response) => {
@@ -28,6 +26,7 @@ const SightingsLog = () => {
                 index={index}
                 food={animal.food}
                 parentComponent={"Log"}
+                setSightings={setSightings}
               />
             </div>
           );
