@@ -1,5 +1,6 @@
 import SearchBar from "../../components/searchBar/searchBar";
 import NavBar from "../../components/navBar/navBar";
+import SightingsLog from "../../components/sightingsLog/sightingsLog";
 
 const HomePage = () => {
   return (
@@ -9,6 +10,9 @@ const HomePage = () => {
       </nav>
       <div>
         <SearchBar />
+      </div>
+      <div>
+        <SightingsLog />
       </div>
     </main>
   );
