@@ -1,47 +1,11 @@
+import SearchFacts from "../../components/searchFacts/searchFacts";
+
 const SearchAnimal = ({ animal, index }) => {
   let food = animal.characteristics.prey;
 
   if (!food) {
     food = animal.characteristics.main_prey;
   }
-
-  const getFacts = () => {
-    const facts = [
-      { label: "Where do they live?", content: getLocations() },
-      { label: "What do they eat?", content: food },
-    ];
-
-    return (
-      <>
-        {facts.map((fact) => {
-          return (
-            <>
-              <h2 className="label-text text-black font-bold text-sm pt-2">
-                {fact.label}
-              </h2>
-              <p className="label-text text-black text-sm pb-2">
-                {fact.content}
-              </p>
-            </>
-          );
-        })}
-      </>
-    );
-  };
-
-  const getLocations = () => {
-    return (
-      <>
-        {animal.locations.map((place, index) => {
-          return (
-            <p className="label-text text-black text-sm" key={index}>
-              {place}
-            </p>
-          );
-        })}
-      </>
-    );
-  };
 
   const handleAnimalSave = async (e) => {
     e.preventDefault();
@@ -74,7 +38,7 @@ const SearchAnimal = ({ animal, index }) => {
       <h1 className="label-text text-black font-bold text-2xl pb-2">
         {animal.name}
       </h1>
-      <div>{getFacts()}</div>
+      <SearchFacts locations={animal.locations} food={food} />
       <div>
         <form onSubmit={handleAnimalSave}>
           <input
