@@ -30,11 +30,26 @@ describe("SearchAnimal", () => {
       "Worms, Insects, Fruit, Berries"
     );
   });
-  it("Render component with save button", () => {
+  it("Renders component with save button", () => {
     cy.mount(<SearchAnimal animal={mockSearchResults[0]} index={0} />);
 
     cy.get('[data-cy="saveButton"]')
       .invoke("attr", "type")
       .should("eq", "submit");
+  });
+
+  it("Creates a POST request to '/animalSightings'", (done) => {
+    cy.mount(<SearchAnimal animal={mockSearchResults[0]} index={0} />);
+
+    cy.intercept("POST", "/animalSightings", { message: "SAVED" }).as(
+      "saveAnimal"
+    );
+
+    cy.get('[data-cy="saveButton"]').click();
+
+    cy.wait("@saveAnimal").then((interception) => {
+      expect(interception.response.body.message).to.eq("SAVED");
+    });
+    done();
   });
 });

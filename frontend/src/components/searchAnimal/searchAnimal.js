@@ -1,4 +1,32 @@
-const SearchAnimals = ({ animal, index }) => {
+const SearchAnimal = ({ animal, index }) => {
+  let food = animal.characteristics.prey;
+
+  if (!food) {
+    food = animal.characteristics.main_prey;
+  }
+
+  const handleAnimalSave = async (e) => {
+    e.preventDefault();
+
+    let response = await fetch("/animalSightings", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: animal.name,
+        locations: animal.locations,
+        food: food,
+      }),
+    });
+
+    if (response.status !== 200) {
+      console.log("animal NOT added");
+    } else {
+      console.log("animal added");
+    }
+  };
+
   return (
     <div
       className="sm:container sm:mx-auto bg-white rounded-xl shadow border p-4"
@@ -21,20 +49,19 @@ const SearchAnimals = ({ animal, index }) => {
       <h2 className="label-text text-black font-bold text-sm pt-2">
         What do they eat?
       </h2>
-      <p className="label-text text-black text-sm pb-2">
-        {animal.characteristics.prey}
-        {animal.characteristics.main_prey}
-      </p>
-      <form>
-        <input
-          className="btn btn-outline"
-          data-cy="saveButton"
-          type="submit"
-          value="Add to log"
-        />
-      </form>
+      <p className="label-text text-black text-sm pb-2">{food}</p>
+      <div>
+        <form onSubmit={handleAnimalSave}>
+          <input
+            className="btn btn-outline"
+            data-cy="saveButton"
+            type="submit"
+            value="Add to log"
+          />
+        </form>
+      </div>
     </div>
   );
 };
 
-export default SearchAnimals;
+export default SearchAnimal;
