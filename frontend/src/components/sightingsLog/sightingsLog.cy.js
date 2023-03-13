@@ -31,7 +31,7 @@ describe("SightingsLog", () => {
     cy.mount(<SightingsLog />);
   });
 
-  it("Calls the /animalSightings endpoint and lists all names of the sightings", () => {
+  it("Calls the /animalSightings endpoint and renders lists of all names of the sightings", () => {
     cy.wait("@getSightings").then(() => {
       cy.get('[data-cy="sightingsLog"]')
         .should("contain.text", "American Robin")
@@ -39,7 +39,7 @@ describe("SightingsLog", () => {
     });
   });
 
-  it("Calls the /animalSightings endpoint and lists all names and facts of the sightings", () => {
+  it("Calls the /animalSightings endpoint and renders lists of all names and facts of the sightings", () => {
     cy.wait("@getSightings").then(() => {
       cy.get('[data-cy="animalNameLogAmerican Robin"]').should(
         "contain.text",
@@ -59,6 +59,12 @@ describe("SightingsLog", () => {
         "What do they eat?",
         "Deer, Cattle, Wild Boar"
       );
+    });
+  });
+
+  it("Calls the /animalSightings endpoint and renders lists of sightings but does not show saveButton", () => {
+    cy.wait("@getSightings").then(() => {
+      cy.get('[data-cy="saveButton"]').should("not.exist");
     });
   });
 });

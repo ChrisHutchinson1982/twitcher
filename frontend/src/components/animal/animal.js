@@ -30,27 +30,37 @@ const Animal = ({ animal, index, food, parentComponent }) => {
     }
   };
 
+  const renderButton = () => {
+    if (parentComponent == "Result") {
+      return (
+        <>
+          <form onSubmit={handleAnimalSave}>
+            <input
+              className="btn btn-outline"
+              data-cy="saveButton"
+              type="submit"
+              value="Add to log"
+            />
+          </form>
+        </>
+      );
+    }
+  };
+
   return (
-    <div
-      className="sm:container sm:mx-auto bg-white rounded-xl shadow border p-4"
-      data-cy={`animalName${parentComponent}${animal.name}`}
-      key={index}
-    >
-      <h1 className="label-text text-black font-bold text-2xl pb-2">
-        {animal.name}
-      </h1>
-      <AnimalFacts locations={animal.locations} food={food} />
-      <div>
-        <form onSubmit={handleAnimalSave}>
-          <input
-            className="btn btn-outline"
-            data-cy="saveButton"
-            type="submit"
-            value="Add to log"
-          />
-        </form>
+    <>
+      <div
+        className="sm:container sm:mx-auto bg-white rounded-xl shadow border p-4"
+        data-cy={`animalName${parentComponent}${animal.name}`}
+        key={index}
+      >
+        <h1 className="label-text text-black font-bold text-2xl pb-2">
+          {animal.name}
+        </h1>
+        <AnimalFacts locations={animal.locations} food={food} />
+        {renderButton()}
       </div>
-    </div>
+    </>
   );
 };
 
