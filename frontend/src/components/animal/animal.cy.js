@@ -82,4 +82,19 @@ describe("Animal", () => {
     });
     done();
   });
+
+  it("Does not render component with save button with parentComponent", () => {
+    cy.mount(
+      <Animal
+        animal={mockSearchResults[0]}
+        index={0}
+        food={
+          "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
+        }
+        parentComponent={"Log"}
+      />
+    );
+
+    cy.get('[data-cy="saveButton"]').should("not.exist");
+  });
 });

@@ -22,12 +22,14 @@ const SightingsLog = () => {
       >
         {sightings.map((animal, index) => {
           return (
-            <Animal
-              animal={animal}
-              index={index}
-              food={animal.food}
-              parentComponent={"Log"}
-            />
+            <div key={index}>
+              <Animal
+                animal={animal}
+                index={index}
+                food={animal.food}
+                parentComponent={"Log"}
+              />
+            </div>
           );
         })}
       </div>
