@@ -25,6 +25,14 @@ const SearchAnimals = ({ animal, index }) => {
         {animal.characteristics.prey}
         {animal.characteristics.main_prey}
       </p>
+      <form>
+        <input
+          className="btn btn-outline"
+          data-cy="saveButton"
+          type="submit"
+          value="Add to log"
+        />
+      </form>
     </div>
   );
 };

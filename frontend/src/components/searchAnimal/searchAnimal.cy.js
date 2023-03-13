@@ -30,4 +30,11 @@ describe("SearchAnimal", () => {
       "Worms, Insects, Fruit, Berries"
     );
   });
+  it("Render component with save button", () => {
+    cy.mount(<SearchAnimal animal={mockSearchResults[0]} index={0} />);
+
+    cy.get('[data-cy="saveButton"]')
+      .invoke("attr", "type")
+      .should("eq", "submit");
+  });
 });
