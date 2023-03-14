@@ -28,6 +28,10 @@ describe("/animalSightings", () => {
     await AnimalSighting.deleteMany();
   });
 
+  afterAll(async () => {
+    await AnimalSighting.deleteMany();
+  });
+
   describe("POST", () => {
     test("responds with a status code 200", async () => {
       let response = await request(app)
