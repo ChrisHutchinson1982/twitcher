@@ -37,6 +37,10 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
     }
   };
 
+  const handleAnimalDelete = async (e) => {
+    e.preventDefault();
+  };
+
   const renderButton = () => {
     if (parentComponent === "Search") {
       return (
@@ -47,6 +51,19 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
               data-cy="saveButton"
               type="submit"
               value="Add to log"
+            />
+          </form>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <form onSubmit={handleAnimalDelete}>
+            <input
+              className="btn btn-outline"
+              data-cy="deleteButton"
+              type="submit"
+              value="Delete"
             />
           </form>
         </>

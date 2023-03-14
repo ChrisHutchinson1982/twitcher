@@ -26,6 +26,7 @@ describe("Animal", () => {
       "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
     );
   });
+
   it("Renders component with Animal name, location and main_prey", () => {
     cy.mount(
       <Animal
@@ -50,6 +51,7 @@ describe("Animal", () => {
       "Worms, Insects, Fruit, Berries"
     );
   });
+
   it("Renders component with save button", () => {
     cy.mount(
       <Animal
@@ -127,5 +129,20 @@ describe("Animal", () => {
       "What do they eat?",
       "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
     );
+  });
+
+  it("Renders delete button when parentComponent is Log", () => {
+    cy.mount(
+      <Animal
+        animal={mockSearchResults[0]}
+        index={0}
+        food={
+          "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
+        }
+        parentComponent={"Log"}
+      />
+    );
+
+    cy.get('[data-cy="deleteButton"]').should("exist");
   });
 });
