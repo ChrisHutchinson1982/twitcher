@@ -80,4 +80,24 @@ describe("/animalSightings", () => {
       expect(response.status).toEqual(200);
     });
   });
+
+  describe("DELETE", () => {
+    test("delete selected animal and update animalSightings accordingly", async () => {
+      await request(app).post("/animalSightings").send(animalSighting1);
+      await request(app).post("/animalSightings").send(animalSighting2);
+      let animalSightings = await AnimalSighting.find();
+      expect(animalSightings.length).toEqual(2);
+
+      const animal_id = animalSightings[0]._id;
+
+      let response = await request(app)
+        .delete("/animalSightings")
+        .set({ animal_id: animal_id })
+        .send();
+
+      let updatedAnimalSightings = await AnimalSighting.find();
+      expect(response.statusCode).toBe(200);
+      expect(updatedAnimalSightings.length).toEqual(1);
+    });
+  });
 });
