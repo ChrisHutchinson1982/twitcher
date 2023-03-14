@@ -162,4 +162,26 @@ describe("Animal", () => {
     cy.get('[data-cy="saveButton"]').should("exist");
     cy.get('[data-cy="deleteButton"]').should("not.exist");
   });
+
+  it("Can create a DELETE request to /animalSightings", () => {
+    cy.mount(
+      <Animal
+        animal={mockSearchResults[0]}
+        index={0}
+        food={
+          "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
+        }
+        parentComponent={"Log"}
+      />
+    );
+
+    cy.intercept("DELETE", "/animalSightings", { message: "DELETED" }).as(
+      "deleteAnimalSighting"
+    );
+
+    cy.get('[data-cy="deleteButton"]').click();
+    cy.wait("@deleteAnimalSighting").then((interception) => {
+      expect(interception.response.body.message).to.eq("DELETED");
+    });
+  });
 });

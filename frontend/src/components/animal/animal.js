@@ -39,6 +39,26 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
 
   const handleAnimalDelete = async (e) => {
     e.preventDefault();
+
+    const response = await fetch("/animalSightings", {
+      method: "DELETE",
+      headers: {
+        animal_id: animal._id,
+      },
+    });
+
+    if (response.status !== 200) {
+      console.log("animal NOT deleted");
+    } else {
+      console.log("animal deleted");
+      fetch("/animalSightings")
+        .then((response) => {
+          return response.json();
+        })
+        .then(async (responseData) => {
+          setSightings(responseData);
+        });
+    }
   };
 
   const renderButton = () => {
