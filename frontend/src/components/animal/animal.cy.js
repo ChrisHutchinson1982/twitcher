@@ -143,6 +143,23 @@ describe("Animal", () => {
       />
     );
 
+    cy.get('[data-cy="saveButton"]').should("not.exist");
     cy.get('[data-cy="deleteButton"]').should("exist");
+  });
+
+  it("Does not render delete button when parentComponent is Search", () => {
+    cy.mount(
+      <Animal
+        animal={mockSearchResults[0]}
+        index={0}
+        food={
+          "earthworms, caterpillars, grasshoppers, beetle grubs, spiders, and snails"
+        }
+        parentComponent={"Search"}
+      />
+    );
+
+    cy.get('[data-cy="saveButton"]').should("exist");
+    cy.get('[data-cy="deleteButton"]').should("not.exist");
   });
 });
