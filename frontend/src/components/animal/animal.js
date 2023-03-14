@@ -56,32 +56,25 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
 
   const renderButton = () => {
     if (parentComponent === "Search") {
-      return (
-        <>
-          <form onSubmit={handleAnimalSave}>
-            <input
-              className="btn btn-outline"
-              data-cy="saveButton"
-              type="submit"
-              value="Add to log"
-            />
-          </form>
-        </>
-      );
+      return createButton(handleAnimalSave, "saveButton", "Add to log");
     } else {
-      return (
-        <>
-          <form onSubmit={handleAnimalDelete}>
-            <input
-              className="btn btn-outline"
-              data-cy="deleteButton"
-              type="submit"
-              value="Delete"
-            />
-          </form>
-        </>
-      );
+      return createButton(handleAnimalDelete, "deleteButton", "Delete");
     }
+  };
+
+  const createButton = (handleAction, id, label) => {
+    return (
+      <>
+        <form onSubmit={handleAction}>
+          <input
+            className="btn btn-outline"
+            data-cy={id}
+            type="submit"
+            value={label}
+          />
+        </form>
+      </>
+    );
   };
 
   return (
