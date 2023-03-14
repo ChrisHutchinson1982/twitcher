@@ -23,18 +23,7 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
       }),
     });
 
-    if (response.status !== 200) {
-      console.log("animal NOT added");
-    } else {
-      console.log("animal added");
-      fetch("/animalSightings")
-        .then((response) => {
-          return response.json();
-        })
-        .then(async (responseData) => {
-          setSightings(responseData);
-        });
-    }
+    refreshSightingsLog(response);
   };
 
   const handleAnimalDelete = async (e) => {
@@ -47,10 +36,14 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
       },
     });
 
+    refreshSightingsLog(response);
+  };
+
+  const refreshSightingsLog = (response) => {
     if (response.status !== 200) {
-      console.log("animal NOT deleted");
+      console.log("Action not completed");
     } else {
-      console.log("animal deleted");
+      console.log("Action completed");
       fetch("/animalSightings")
         .then((response) => {
           return response.json();
