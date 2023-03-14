@@ -2,9 +2,14 @@ import AnimalFacts from "../animalFacts/animalFacts";
 
 const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
   if (!food) {
-    food = animal.characteristics.prey;
-    if (!food) {
-      food = animal.characteristics.main_prey;
+    let prey = animal.characteristics.prey;
+    let main_prey = animal.characteristics.main_prey;
+    if (prey) {
+      food = prey;
+    } else if (main_prey) {
+      food = main_prey;
+    } else {
+      food = "Not available";
     }
   }
 
