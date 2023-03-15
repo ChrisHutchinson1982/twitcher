@@ -23,6 +23,10 @@ describe("AnimalSighting Model", () => {
     });
   });
 
+  afterAll(async () => {
+    await AnimalSighting.deleteMany();
+  });
+
   it("has all required fields", () => {
     expect(animalSighting.name).toEqual("Robin");
     expect(animalSighting.locations).toEqual([

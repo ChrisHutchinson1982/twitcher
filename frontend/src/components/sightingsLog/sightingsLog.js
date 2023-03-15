@@ -15,10 +15,9 @@ const SightingsLog = ({ sightings, setSightings }) => {
   return (
     <>
       <div
-        className="container mx-auto rounded-md shadow border p-4 m-10 w-full max-w-sm space-y-2 bg-white bg-opacity-75"
+        className="container mx-auto rounded-md shadow border p-4 m-10 w-full max-w-4xl space-y-2 bg-white bg-opacity-75"
         data-cy="sightingsLog"
       >
-        {" "}
         <label className="label">
           <span
             className="label-text text-black font-bold text-5xl"
@@ -27,19 +26,21 @@ const SightingsLog = ({ sightings, setSightings }) => {
             Twitching Log
           </span>
         </label>
-        {sightings.map((animal, index) => {
-          return (
-            <div key={index}>
-              <Animal
-                animal={animal}
-                index={index}
-                food={animal.food}
-                parentComponent={"Log"}
-                setSightings={setSightings}
-              />
-            </div>
-          );
-        })}
+        <div className="grid grid-cols-3 gap-4">
+          {sightings.map((animal, index) => {
+            return (
+              <div key={index}>
+                <Animal
+                  animal={animal}
+                  index={index}
+                  food={animal.food}
+                  parentComponent={"Log"}
+                  setSightings={setSightings}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );

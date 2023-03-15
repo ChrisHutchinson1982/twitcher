@@ -2,9 +2,14 @@ import AnimalFacts from "../animalFacts/animalFacts";
 
 const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
   if (!food) {
-    food = animal.characteristics.prey;
-    if (!food) {
-      food = animal.characteristics.main_prey;
+    let prey = animal.characteristics.prey;
+    let main_prey = animal.characteristics.main_prey;
+    if (prey) {
+      food = prey;
+    } else if (main_prey) {
+      food = main_prey;
+    } else {
+      food = "Not available";
     }
   }
 
@@ -23,10 +28,27 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
       }),
     });
 
+    refreshSightingsLog(response);
+  };
+
+  const handleAnimalDelete = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch("/animalSightings", {
+      method: "DELETE",
+      headers: {
+        animal_id: animal._id,
+      },
+    });
+
+    refreshSightingsLog(response);
+  };
+
+  const refreshSightingsLog = (response) => {
     if (response.status !== 200) {
-      console.log("animal NOT added");
+      console.log("Action not completed");
     } else {
-      console.log("animal added");
+      console.log("Action completed");
       fetch("/animalSightings")
         .then((response) => {
           return response.json();
@@ -39,19 +61,25 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
 
   const renderButton = () => {
     if (parentComponent === "Search") {
-      return (
-        <>
-          <form onSubmit={handleAnimalSave}>
-            <input
-              className="btn btn-outline"
-              data-cy="saveButton"
-              type="submit"
-              value="Add to log"
-            />
-          </form>
-        </>
-      );
+      return createButton(handleAnimalSave, "saveButton", "Add to log");
+    } else {
+      return createButton(handleAnimalDelete, "deleteButton", "Delete");
     }
+  };
+
+  const createButton = (handleAction, id, label) => {
+    return (
+      <>
+        <form onSubmit={handleAction}>
+          <input
+            className="btn btn-outline"
+            data-cy={id}
+            type="submit"
+            value={label}
+          />
+        </form>
+      </>
+    );
   };
 
   return (
@@ -61,7 +89,7 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
         data-cy={`animal${parentComponent}${animal.name}`}
         key={index}
       >
-        <h1 className="label-text text-black font-bold text-2xl pb-2">
+        <h1 className="label-text text-black font-bold text-2xl pb-2 h-16">
           {animal.name}
         </h1>
         <AnimalFacts locations={animal.locations} food={food} />

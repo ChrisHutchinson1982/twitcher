@@ -118,6 +118,33 @@ const mockSearchResults = [
       length: "12.5cm - 14cm (5in - 5.5in)",
     },
   },
+  {
+    name: "Australian Cattle Dog",
+    taxonomy: {
+      kingdom: "Animalia",
+      phylum: "Chordata",
+      class: "Mammalia",
+      order: "Carnivora",
+      family: "Canidae",
+      genus: "Canis",
+      scientific_name: "Canis lupus",
+    },
+    locations: ["Oceania"],
+    characteristics: {
+      temperament: "Strong minded yet loyal and loving",
+      training:
+        "Should be trained from an early age and respond best to firm and fair training",
+      diet: "Omnivore",
+      average_litter_size: "5",
+      common_name: "Australian Cattle Dog",
+      slogan: "High energy levels and active minds!",
+      group: "Herd Dog",
+      color: "GreyRedBlack",
+      skin_type: "Hair",
+      lifespan: "13-15 years",
+      height: "17-20 inches",
+    },
+  },
 ];
 
 module.exports = mockSearchResults;

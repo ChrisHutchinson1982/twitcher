@@ -18,6 +18,10 @@ Developing a full stack web application using the MERN stack to enable users to 
 
 [Click to see view details of Sprint 1 with screen shots of components](docs/sprint1.md)
 
+### Sprint 2 - Complete
+
+[Click to see view details of Sprint 2 with screen shots and learning points](docs/sprint2.md)
+
 # Set-up and Testing
 
 ## Installation
