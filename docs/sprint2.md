@@ -14,7 +14,13 @@
 
 **Screen shots**
 
-![Sprint 2 Screen Shot](homepageSprint2.png)
+**Twitcher log with save and delete buttons**
+
+![Sprint 2 Screen Shot](homepage.png)
+
+**Twitcher log with facts expandeds**
+
+![Sprint 2 Screen Shot](homepagewithfacts.png)
 
 ### Learning Points
 
