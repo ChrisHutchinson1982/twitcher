@@ -10,7 +10,7 @@ describe("User saves sightings", () => {
     }).as("getAnimals");
   });
 
-  it("user sucessfully completes a search, saves and delets animal from twitching log", () => {
+  it("user sucessfully completes a search, saves and delete animal from twitching log", () => {
     cy.visit("/");
 
     cy.get('[data-cy="animalName"]').type("Robin");

@@ -89,7 +89,7 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
         data-cy={`animal${parentComponent}${animal.name}`}
         key={index}
       >
-        <h1 className="label-text text-black font-bold text-2xl pb-2">
+        <h1 className="label-text text-black font-bold text-2xl pb-2 h-16">
           {animal.name}
         </h1>
         <AnimalFacts locations={animal.locations} food={food} />

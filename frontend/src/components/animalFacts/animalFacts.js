@@ -20,7 +20,7 @@ const AnimalFacts = ({ locations, food }) => {
 
   return (
     <>
-      <div data-cy="animalFacts">
+      <div data-cy="animalFacts" className="h-56">
         {facts.map((fact, index) => {
           return (
             <div key={index}>
