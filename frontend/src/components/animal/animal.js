@@ -2,9 +2,10 @@ import AnimalFacts from "../animalFacts/animalFacts";
 import Button from "../button/button";
 
 const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
-  if (!food) {
-    let prey = animal.characteristics.prey;
-    let main_prey = animal.characteristics.main_prey;
+  const assignFood = () => {
+    const prey = animal.characteristics.prey;
+    const main_prey = animal.characteristics.main_prey;
+
     if (prey) {
       food = prey;
     } else if (main_prey) {
@@ -12,6 +13,10 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
     } else {
       food = "Not available";
     }
+  };
+
+  if (!food) {
+    assignFood();
   }
 
   return (
