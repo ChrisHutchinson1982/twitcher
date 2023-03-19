@@ -48,7 +48,7 @@ const Button = ({ animal, food, parentComponent, setSightings }) => {
   const createButton = (handleAction, id, label) => {
     return (
       <>
-        <form onSubmit={handleAction}>
+        <form onSubmit={handleAction} key={id}>
           <input
             className="btn btn-outline"
             data-cy={id}
