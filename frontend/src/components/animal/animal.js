@@ -1,9 +1,11 @@
 import AnimalFacts from "../animalFacts/animalFacts";
+import Button from "../button/button";
 
 const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
-  if (!food) {
-    let prey = animal.characteristics.prey;
-    let main_prey = animal.characteristics.main_prey;
+  const assignFood = () => {
+    const prey = animal.characteristics.prey;
+    const main_prey = animal.characteristics.main_prey;
+
     if (prey) {
       food = prey;
     } else if (main_prey) {
@@ -11,76 +13,11 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
     } else {
       food = "Not available";
     }
+  };
+
+  if (!food) {
+    assignFood();
   }
-
-  const handleAnimalSave = async (e) => {
-    e.preventDefault();
-
-    let response = await fetch("/animalSightings", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: animal.name,
-        locations: animal.locations,
-        food: food,
-      }),
-    });
-
-    refreshSightingsLog(response);
-  };
-
-  const handleAnimalDelete = async (e) => {
-    e.preventDefault();
-
-    const response = await fetch("/animalSightings", {
-      method: "DELETE",
-      headers: {
-        animal_id: animal._id,
-      },
-    });
-
-    refreshSightingsLog(response);
-  };
-
-  const refreshSightingsLog = (response) => {
-    if (response.status !== 200) {
-      console.log("Action not completed");
-    } else {
-      console.log("Action completed");
-      fetch("/animalSightings")
-        .then((response) => {
-          return response.json();
-        })
-        .then(async (responseData) => {
-          setSightings(responseData);
-        });
-    }
-  };
-
-  const renderButton = () => {
-    if (parentComponent === "Search") {
-      return createButton(handleAnimalSave, "saveButton", "Add to log");
-    } else {
-      return createButton(handleAnimalDelete, "deleteButton", "Delete");
-    }
-  };
-
-  const createButton = (handleAction, id, label) => {
-    return (
-      <>
-        <form onSubmit={handleAction}>
-          <input
-            className="btn btn-outline"
-            data-cy={id}
-            type="submit"
-            value={label}
-          />
-        </form>
-      </>
-    );
-  };
 
   return (
     <>
@@ -93,7 +30,12 @@ const Animal = ({ animal, index, food, parentComponent, setSightings }) => {
           {animal.name}
         </h1>
         <AnimalFacts locations={animal.locations} food={food} />
-        {renderButton()}
+        <Button
+          animal={animal}
+          food={food}
+          parentComponent={parentComponent}
+          setSightings={setSightings}
+        />
       </div>
     </>
   );
