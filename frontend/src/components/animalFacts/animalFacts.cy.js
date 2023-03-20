@@ -1,5 +1,5 @@
 import AnimalFacts from "./animalFacts";
-import mockSearchResults from "../searchResults/mockSearchResults";
+import mockSearchResults from "../../../cypress/mockSearchResults";
 
 describe("AnimalFacts", () => {
   it("Renders component with Animal name, location and prey", () => {

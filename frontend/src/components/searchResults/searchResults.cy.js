@@ -1,5 +1,5 @@
 import SearchResults from "./searchResults";
-import mockSearchResults from "./mockSearchResults";
+import mockSearchResults from "../../../cypress/mockSearchResults";
 
 describe("SearchResults", () => {
   beforeEach(() => {

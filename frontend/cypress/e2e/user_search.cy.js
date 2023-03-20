@@ -1,4 +1,4 @@
-import mockSearchResults from "../../src/components/searchResults/mockSearchResults";
+import mockSearchResults from "../mockSearchResults";
 
 describe("User search", () => {
   beforeEach(() => {

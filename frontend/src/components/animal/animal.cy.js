@@ -1,5 +1,5 @@
 import Animal from "./animal";
-import mockSearchResults from "../searchResults/mockSearchResults";
+import mockSearchResults from "../../../cypress/mockSearchResults";
 
 describe("Animal", () => {
   let setSightingsMock;
