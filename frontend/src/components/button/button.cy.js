@@ -1,5 +1,5 @@
 import Button from "./button";
-import mockSearchResults from "../searchResults/mockSearchResults";
+import mockSearchResults from "../../../cypress/mockSearchResults";
 
 describe("Button", () => {
   let setSightingsMock;
